@@ -189,257 +189,153 @@
  </div>
 </section>
 
+
 <section class="site-section" id="faq-section">
- <div class="container" id="accordion">
-  <div class="row justify-content-center" data-aos="fade-up">
-   <div class="col-lg-6 text-center heading-section mb-5">
-    <div class="paws">
-     <span class="icon-paw"></span>
+    <div class="container" id="accordion">
+        <div class="row justify-content-center" data-aos="fade-up">
+            <div class="col-lg-6 text-center heading-section mb-5">
+                <div class="paws">
+                    <span class="icon-paw"></span>
+                </div>
+                <h2 class="text-black mb-2"><?php the_field('questions_title'); ?></h2>
+                <p><?php the_field('questions_description'); ?></p>
+            </div>
+        </div>
+        <div class="row accordion justify-content-center block__76208">
+            <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="">
+                <img src="<?php the_field('faq_img'); ?>" alt="Image" class="img-fluid rounded" />
+            </div>
+            <div class="col-lg-5 mr-auto order-lg-1" data-aos="fade-up" data-aos-delay="100">
+                <?php if (have_rows('faq_questions')) : ?>
+                    <?php $first = true; ?>
+                    <?php while (have_rows('faq_questions')) : the_row(); ?>
+                        <div class="accordion-item">
+                            <h3 class="mb-0 heading">
+                                <a class="btn-block <?php echo ($first ? 'collapsed' : ''); ?>" data-toggle="collapse" href="#collapse-<?php echo get_row_index(); ?>" role="button" aria-expanded="<?php echo ($first ? 'true' : 'false'); ?>" aria-controls="collapse-<?php echo get_row_index(); ?>">
+                                    <?php the_sub_field('faq_title'); ?><span class="icon"></span>
+                                </a>
+                            </h3>
+                            <div id="collapse-<?php echo get_row_index(); ?>" class="collapse <?php echo ($first ? 'show' : ''); ?>" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="body-text">
+                                    <p><?php the_sub_field('faq_answer'); ?></p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php $first = false; ?>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
-    <h2 class="text-black mb-2">Frequently Ask Questions</h2>
-    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-   </div>
-  </div>
-  <div class="row accordion justify-content-center block__76208">
-   <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="">
-    <img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_1.jpg" alt="Image" class="img-fluid rounded" />
-   </div>
-   <div class="col-lg-5 mr-auto order-lg-1" data-aos="fade-up" data-aos-delay="100">
-    <div class="accordion-item">
-     <h3 class="mb-0 heading">
-      <a class="btn-block" data-toggle="collapse" href="#collapseFive" role="button" aria-expanded="true" aria-controls="collapseFive">Should I stop letting my dog sleep with me at night?<span class="icon"></span></a>
-     </h3>
-     <div id="collapseFive" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="body-text">
-       <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-      </div>
-     </div>
-    </div>
-    <div class="accordion-item">
-     <h3 class="mb-0 heading">
-      <a class="btn-block" data-toggle="collapse" href="#collapseSix" role="button" aria-expanded="false" aria-controls="collapseSix">Is it okay to dress up your dog?<span class="icon"></span></a>
-     </h3>
-     <div id="collapseSix" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="body-text">
-       <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-      </div>
-     </div>
-    </div>
-    <div class="accordion-item">
-     <h3 class="mb-0 heading">
-      <a class="btn-block" data-toggle="collapse" href="#collapseSeven" role="button" aria-expanded="false" aria-controls="collapseSeven">Why do dogs like belly rubs so much?<span class="icon"></span></a>
-     </h3>
-     <div id="collapseSeven" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="body-text">
-       <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-      </div>
-     </div>
-    </div>
-    <div class="accordion-item">
-     <h3 class="mb-0 heading">
-      <a class="btn-block" data-toggle="collapse" href="#collapseEight" role="button" aria-expanded="false" aria-controls="collapseEight">Is a warm dry nose a sign of illness in dogs?<span class="icon"></span></a>
-     </h3>
-     <div id="collapseEight" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="body-text">
-       <p>
-        The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made
-        herself on the way.
-       </p>
-      </div>
-     </div>
-    </div>
-   </div>
-  </div>
- </div>
 </section>
+
+
 <section class="site-section bg-light block-13" id="testimonials-section" data-aos="fade">
- <div class="container">
-  <div class="row justify-content-center" data-aos="fade-up">
-   <div class="col-lg-6 text-center heading-section mb-5">
-    <div class="paws">
-     <span class="icon-paw"></span>
+    <div class="container">
+        <div class="row justify-content-center" data-aos="fade-up">
+            <div class="col-lg-6 text-center heading-section mb-5">
+                <div class="paws">
+                    <span class="icon-paw"></span>
+                </div>
+                <h2 class="text-black mb-2"><?php the_field('testimonials_title'); ?></h2>
+            </div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200">
+            <div class="owl-carousel nonloop-block-13">
+                <?php $testimonial_items = get_field('testimonial_items'); ?>
+                <?php if ($testimonial_items) : ?>
+                    <?php foreach ($testimonial_items as $testimonial_item) : ?>
+                        <div>
+                            <div class="block-testimony-1 text-center">
+                                <blockquote class="mb-4">
+                                    <p><?php echo $testimonial_item['testimonial_text']; ?></p>
+                                </blockquote>
+                                <figure>
+                                    <?php $image = $testimonial_item['testimonial_image']; ?>
+                                    <?php if ($image) : ?>
+                                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="img-fluid rounded-circle mx-auto" />
+                                    <?php endif; ?>
+                                </figure>
+                                <h3 class="font-size-20 text-black"><?php echo $testimonial_item['testimonial_author']; ?></h3>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
-    <h2 class="text-black mb-2">Happy Customers</h2>
-   </div>
-  </div>
-  <div data-aos="fade-up" data-aos-delay="200">
-   <div class="owl-carousel nonloop-block-13">
-    <div>
-     <div class="block-testimony-1 text-center">
-      <blockquote class="mb-4">
-       <p>
-        &ldquo;The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and
-        made herself on the way.&rdquo;
-       </p>
-      </blockquote>
-      <figure>
-       <img src="<?php echo bloginfo('template_url'); ?>/images/person_4.jpg" alt="Image" class="img-fluid rounded-circle mx-auto" />
-      </figure>
-      <h3 class="font-size-20 text-black">Ricky Fisher</h3>
-     </div>
-    </div>
-    <div>
-     <div class="block-testimony-1 text-center">
-      <blockquote class="mb-4">
-       <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
-      </blockquote>
-      <figure>
-       <img src="<?php echo bloginfo('template_url'); ?>/images/person_2.jpg" alt="Image" class="img-fluid rounded-circle mx-auto" />
-      </figure>
-      <h3 class="font-size-20 mb-4 text-black">Ken Davis</h3>
-     </div>
-    </div>
-    <div>
-     <div class="block-testimony-1 text-center">
-      <blockquote class="mb-4">
-       <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.&rdquo;</p>
-      </blockquote>
-      <figure>
-       <img src="<?php echo bloginfo('template_url'); ?>/images/person_1.jpg" alt="Image" class="img-fluid rounded-circle mx-auto" />
-      </figure>
-      <h3 class="font-size-20 text-black">Mellisa Griffin</h3>
-     </div>
-    </div>
-    <div>
-     <div class="block-testimony-1 text-center">
-      <blockquote class="mb-4">
-       <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-      </blockquote>
-      <figure>
-       <img src="<?php echo bloginfo('template_url'); ?>/images/person_3.jpg" alt="Image" class="img-fluid rounded-circle mx-auto" />
-      </figure>
-      <h3 class="font-size-20 mb-4 text-black">Robert Steward</h3>
-     </div>
-    </div>
-   </div>
-  </div>
- </div>
 </section>
+
+
+
+
 <section class="site-section" id="gallery-section">
- <div class="container-fluid">
-  <div class="row justify-content-center" data-aos="fade-up">
-   <div class="col-lg-6 text-center heading-section mb-5">
-    <div class="paws">
-     <span class="icon-paw"></span>
+    <div class="container-fluid">
+        <div class="row justify-content-center" data-aos="fade-up">
+            <div class="col-lg-6 text-center heading-section mb-5">
+                <div class="paws">
+                    <span class="icon-paw"></span>
+                </div>
+                <h2 class="text-black mb-2"><?php the_field('gallery_title'); ?></h2>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <?php if (have_rows('photo_gallery')) : ?>
+                <?php while (have_rows('photo_gallery')) : the_row(); ?>
+                    <?php $image = get_sub_field('photo_gallery_img'); ?>
+                    <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="<?php echo esc_url($image['url']); ?>" data-fancybox="gal">
+                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="img-fluid" />
+                    </a>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
     </div>
-    <h2 class="text-black mb-2">Photo Gallery</h2>
-   </div>
-  </div>
-  <div class="row no-gutters">
-   <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_1.jpg" data-fancybox="gal"
-    ><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_1.jpg" alt="Image" class="img-fluid"
-   /></a>
-   <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_2.jpg" data-fancybox="gal"
-    ><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_2.jpg" alt="Image" class="img-fluid"
-   /></a>
-   <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_3.jpg" data-fancybox="gal"
-    ><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_3.jpg" alt="Image" class="img-fluid"
-   /></a>
-   <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_4.jpg" data-fancybox="gal"
-    ><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_4.jpg" alt="Image" class="img-fluid"
-   /></a>
-   <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_5.jpg" data-fancybox="gal"
-    ><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_5.jpg" alt="Image" class="img-fluid"
-   /></a>
-   <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_6.jpg" data-fancybox="gal"
-    ><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_6.jpg" alt="Image" class="img-fluid"
-   /></a>
-   <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_1.jpg" data-fancybox="gal"
-    ><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_1.jpg" alt="Image" class="img-fluid"
-   /></a>
-   <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_2.jpg" data-fancybox="gal"
-    ><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_2.jpg" alt="Image" class="img-fluid"
-   /></a>
-   <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_3.jpg" data-fancybox="gal"
-    ><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_3.jpg" alt="Image" class="img-fluid"
-   /></a>
-   <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_4.jpg" data-fancybox="gal"
-    ><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_4.jpg" alt="Image" class="img-fluid"
-   /></a>
-   <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_5.jpg" data-fancybox="gal"
-    ><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_5.jpg" alt="Image" class="img-fluid"
-   /></a>
-   <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_6.jpg" data-fancybox="gal"
-    ><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_6.jpg" alt="Image" class="img-fluid"
-   /></a>
-  </div>
- </div>
 </section>
+
+
+
 <section class="site-section" id="blog-section">
- <div class="container">
-  <div class="row justify-content-center" data-aos="fade-up">
-   <div class="col-lg-6 text-center heading-section mb-5">
-    <div class="paws">
-     <span class="icon-paw"></span>
+    <div class="container">
+        <div class="row justify-content-center" data-aos="fade-up">
+            <div class="col-lg-6 text-center heading-section mb-5">
+                <div class="paws">
+                    <span class="icon-paw"></span>
+                </div>
+                <h2 class="text-black mb-2"><?php the_field('blog_title'); ?></h2>
+                <p><?php the_field('blog_description'); ?></p>
+            </div>
+        </div>
+        <div class="row">
+            <?php if (have_rows('blog_entries')) : ?>
+                <?php while (have_rows('blog_entries')) : the_row(); ?>
+                    <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="">
+                        <div class="d-lg-flex blog-entry">
+                            <?php $image = get_sub_field('blog_entry_image'); ?>
+                            <?php if ($image) : ?>
+                                <figure class="mr-4">
+                                    <a href="<?php the_sub_field('blog_entry_link'); ?>">
+                                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="img-fluid" />
+                                    </a>
+                                </figure>
+                            <?php endif; ?>
+                            <div class="blog-entry-text">
+                                <h3>
+                                    <a href="<?php the_sub_field('blog_entry_link'); ?>"><?php the_sub_field('blog_entry_title'); ?></a>
+                                </h3>
+                                <span class="post-meta mb-3 d-block"><?php the_sub_field('blog_entry_date'); ?></span>
+                                <p><?php the_sub_field('blog_entry_text'); ?></p>
+                                <p><a href="<?php the_sub_field('blog_entry_link'); ?>" class="">Read More..</a></p>
+                            </div>
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
     </div>
-    <h2 class="text-black mb-2">Dogger Blog</h2>
-    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-   </div>
-  </div>
-  <div class="row">
-   <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="">
-    <div class="d-lg-flex blog-entry">
-     <figure class="mr-4">
-      <a href="single.html"><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_1.jpg" alt="Image" class="img-fluid" /></a>
-     </figure>
-     <div class="blog-entry-text">
-      <h3>
-       <a href="single.html">5 Things You Need To Know About Dog Massage</a>
-      </h3>
-      <span class="post-meta mb-3 d-block">April 17, 2019</span>
-      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-      <p><a href="#" class="">Read More..</a></p>
-     </div>
-    </div>
-   </div>
-   <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-    <div class="d-lg-flex blog-entry">
-     <figure class="mr-4">
-      <a href="single.html"><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_2.jpg" alt="Image" class="img-fluid" /></a>
-     </figure>
-     <div class="blog-entry-text">
-      <h3>
-       <a href="single.html">5 Things You Need To Know About Dog Massage</a>
-      </h3>
-      <span class="post-meta mb-3 d-block">April 17, 2019</span>
-      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-      <p><a href="#" class="">Read More..</a></p>
-     </div>
-    </div>
-   </div>
-   <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="">
-    <div class="d-lg-flex blog-entry">
-     <figure class="mr-4">
-      <a href="single.html"><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_3.jpg" alt="Image" class="img-fluid" /></a>
-     </figure>
-     <div class="blog-entry-text">
-      <h3>
-       <a href="single.html">5 Things You Need To Know About Dog Massage</a>
-      </h3>
-      <span class="post-meta mb-3 d-block">April 17, 2019</span>
-      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-      <p><a href="#" class="">Read More..</a></p>
-     </div>
-    </div>
-   </div>
-   <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-    <div class="d-lg-flex blog-entry">
-     <figure class="mr-4">
-      <a href="single.html"><img src="<?php echo bloginfo('template_url'); ?>/images/dogger_img_sm_1.jpg" alt="Image" class="img-fluid" /></a>
-     </figure>
-     <div class="blog-entry-text">
-      <h3>
-       <a href="single.html">5 Things You Need To Know About Dog Massage</a>
-      </h3>
-      <span class="post-meta mb-3 d-block">April 17, 2019</span>
-      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-      <p><a href="#" class="">Read More..</a></p>
-     </div>
-    </div>
-   </div>
-  </div>
- </div>
 </section>
+
+
+
 <section class="site-section" id="services-section">
  <div class="container">
   <div class="row justify-content-center" data-aos="fade-up">

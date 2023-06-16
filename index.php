@@ -419,11 +419,11 @@
        </li>
        <li>
         <span class="d-block">Phone:</span>
-        <a href="<?php the_field('contact_phone'); ?>"></a>
+        <p href="<?php the_field('contact_phone'); ?>"> <?php the_field('contact_phone_text'); ?> </p>
        </li>
        <li>
         <span class="d-block">Email:</span>
-        <a href="<?php the_field('contact_email_address_link'); ?>"> </a>
+        <a href="<?php the_field('contact_email_address_link'); ?>"> <?php the_field('contact_email_address_text'); ?> </a>
        </li>
       </ul>
      </div>

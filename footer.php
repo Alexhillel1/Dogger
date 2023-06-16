@@ -1,82 +1,61 @@
 <footer class="site-footer">
     <div class="container">
-     <div class="row">
-      <div class="col-md-9">
-       <div class="row">
-        <div class="col-md-5">
-         <h2 class="footer-heading mb-4">About Us</h2>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h2 class="footer-heading mb-4"><?php the_field('about_us_title'); ?></h2>
+                        <p><?php the_field('about_us_description'); ?></p>
+                    </div>
+                    <div class="col-md-3 ml-auto">
+                        <h2 class="footer-heading mb-4"><?php the_field('quick_links_title'); ?></h2>
+                        <ul class="list-unstyled">
+                            <?php if (have_rows('quick_links')) : ?>
+                                <?php while (have_rows('quick_links')) : the_row(); ?>
+                                    <li>
+                                        <a href="<?php the_sub_field('quick_link'); ?>" class="smoothscroll"><?php the_sub_field('quick_link_title'); ?></a>
+                                    </li>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h2 class="footer-heading mb-4">Follow Us</h2>
+                        <?php if (have_rows('social_links')) : ?>
+                            <?php while (have_rows('social_links')) : the_row(); ?>
+                                <a href="<?php the_sub_field('social_media_link'); ?>" class="pl-0 pr-3"><span class="<?php the_sub_field('social_icon'); ?>"></span></a>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
+                <form action="#" method="post" class="footer-subscribe">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2" />
+                        <div class="input-group-append">
+                            <button class="btn btn-primary text-black" type="button" id="button-addon2">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="col-md-3 ml-auto">
-         <h2 class="footer-heading mb-4">Quick Links</h2>
-         <ul class="list-unstyled">
-          <li>
-           <a href="#about-section" class="smoothscroll">About Us</a>
-          </li>
-          <li>
-           <a href="#trainers-section" class="smoothscroll">Trainers</a>
-          </li>
-          <li>
-           <a href="#services-section" class="smoothscroll">Services</a>
-          </li>
-          <li>
-           <a href="#testimonials-section" class="smoothscroll">Testimonials</a>
-          </li>
-          <li>
-           <a href="#contact-section" class="smoothscroll">Contact Us</a>
-          </li>
-         </ul>
-        </div>
-        <div class="col-md-3">
-         <h2 class="footer-heading mb-4">Follow Us</h2>
-         <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-         <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-         <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-         <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-        </div>
-       </div>
-      </div>
-      <div class="col-md-3">
-       <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
-       <form action="#" method="post" class="footer-subscribe">
-        <div class="input-group mb-3">
-         <input type="text" class="form-control border-secondary text-white bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2" />
-         <div class="input-group-append">
-          <button class="btn btn-primary text-black" type="button" id="button-addon2">Send</button>
-         </div>
-        </div>
-       </form>
-      </div>
-     </div>
-     <div class="row pt-5 mt-5 text-center">
+        <?php if (have_rows('copyright_info')) : ?>
+  <?php while (have_rows('copyright_info')) : the_row(); ?>
+    <div class="row pt-5 mt-5 text-center">
       <div class="col-md-12">
-       <div class="border-top pt-5">
-        <p class="copyright">
-         <small>
-          Copyright &copy;
-          <script>
-           document.write(new Date().getFullYear());
-          </script>
-          All rights reserved | This template is made with
-          <i class="icon-heart text-danger" aria-hidden="true"></i> by
-          <a href="https://colorlib.com" target="_blank">Colorlib</a>
-         </small>
-        </p>
-       </div>
+        <div class="border-top pt-5">
+        <?php the_sub_field('copyright_text'); ?>
+        <a href="<?php the_sub_field('copyright_link'); ?>" class="smoothscroll"><?php the_sub_field('copyright_link_text'); ?></a>
+        </div>
       </div>
-     </div>
     </div>
-   </footer>
+  <?php endwhile; ?>
+<?php endif; ?>
+    </div>
+</footer>
   </div>
   <?php wp_footer(); ?>
-  <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag() {
-    dataLayer.push(arguments);
-   }
-   gtag('js', new Date());
-
-   gtag('config', 'UA-23581568-13');
-  </script>
  </body>
 </html>

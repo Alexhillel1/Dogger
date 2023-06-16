@@ -136,3 +136,11 @@ function fix_svg_mime_type( $data, $file, $filename, $mimes, $real_mime = '' ){
 
 	return $data;
 }
+
+if (function_exists("acf_add_options_page")) {
+    acf_add_options_page(array(
+        "page_title" => "Настройки сайта",
+        "menu_title" => "Настройки сайта",
+        "menu_slug"  => "theme_settings",
+    ));
+}
